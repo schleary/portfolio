@@ -16,7 +16,6 @@
 		<%= link_to "Projects", projects_path %>
 		<%= link_to "Blog", entries_path %>
 		<% if user_signed_in? %>
-		<%= link_to "Contact", contacts_path %>
 			<%= link_to "Sign Out", destroy_user_session_path, method: :delete%>
 		<% end %>
     </nav>
@@ -28,8 +27,9 @@
     <%= yield %>
 
     <footer>    
+    <%= mail_to "schleary@gmail.com", "Contact" %>
 		<a href="https://github.com/schleary" target="_blank">GitHub</a>
-		<a href="https://www.linkedin.com/profile/view?id=233832133&trk=nav_responsive_tab_profile_pic" target="_blank">LinkedIn</a>
+		<a href="https://www.linkedin.com/in/holly-leary-63138766/" target="_blank">LinkedIn</a>
 		<a href="https://twitter.com/schleary" target="_blank">Twitter</a>
 	</footer>
 

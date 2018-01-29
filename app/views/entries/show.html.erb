@@ -5,7 +5,7 @@
 </p>
 <p>
   <strong>Date:</strong>
-  <%= @entry.date %>
+  <%= @entry.date.strftime('%B %w, %Y') %>
 </p>
 
 <p>
@@ -15,7 +15,7 @@
  
 <p>
   <strong>Content:</strong>
-  <%= @entry.content %>
+  <%= markdown @entry.content %>
 </p>
  
 <% if user_signed_in? %>
@@ -28,9 +28,9 @@
 
 Share:
 <br>
-<!-- Facebook -->
+
+<!-- Share on Facebook -->
 <a onclick="javascript:window.open('http://www.facebook.com/sharer/sharer.php?u=<%= request.original_url %>', '_blank', 'width=800, height=500, top=200, left=300');void(0);">Facebook<i class="fa fa-facebook" aria-hidden="true"></i></a>
 
-<!-- Twitter -->
 
-<!--  -->
+<br>

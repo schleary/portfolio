@@ -1,23 +1,7 @@
-
-<p>
-  <strong>Image:</strong>
-  <%= @project.image %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
-
-<p>
-  <strong>Link:</strong>
-  <%= @project.link %>
-</p>
- 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+<%= @project.image %><br>
+<%= @project.title %><br>
+<%= @project.link %><br>
+<%= @project.description %><br>
  
 <% if user_signed_in? %>
 	<%= link_to 'Edit', edit_project_path(@project) %>

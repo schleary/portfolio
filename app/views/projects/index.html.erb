@@ -3,28 +3,19 @@
 <% if user_signed_in? %>
   <%= link_to 'New Project', new_project_path %>
 <% end %>
+<br>
+<% @projects.each do |project| %>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Link</th>
-    <th>Image</th>
-    <th>Description</th>
-  </tr>
- 
-  <% @projects.each do |project| %>
-    <tr>
-      <td><%= project.title %></td>
-      <td><%= project.link %></td>
-      <td><%= project.image %></td>
-      <td><%= project.description %></td>
-      <td><%= link_to 'Show', project_path(project) %></td>
-      <%if user_signed_in? %>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Delete', project_path(project),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
-    </tr>
+  <%= project.title %><br>
+  <%= project.link %><br>
+  <%= project.image %><br>
+  <%= project.description %><br>
+  <%= link_to 'Show', project_path(project) %><br>
+  <%if user_signed_in? %>
+    <%= link_to 'Edit', edit_project_path(project) %>
+    <%= link_to 'Delete', project_path(project),
+          method: :delete,
+          data: { confirm: 'Are you sure?' } %><br>
   <% end %>
-</table>
+
+<% end %>

@@ -1,36 +1,24 @@
-<%= link_to 'Blog Entries', entries_path %>
-<p>
-  <strong>Image:</strong>
-  <%= @entry.image %>
-</p>
-<p>
-  <strong>Date:</strong>
-  <%= @entry.date.strftime('%B %w, %Y') %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @entry.title %>
-</p>
- 
-<p>
-  <strong>Content:</strong>
-  <%= markdown @entry.content %>
-</p>
- 
 <% if user_signed_in? %>
-	<%= link_to 'Edit', edit_entry_path(@entry) %>
-	<%= link_to 'Delete', entry_path(@entry),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'New Entry', new_entry_path %>
+<% end %><br>
+<%= link_to 'Show All', entries_path %>
+<br>
+
+<%= @entry.image %>
+<h1>
+  <%= @entry.title %>
+</h1>
+<%= @entry.date.strftime('%B %w, %Y') %><br>
+<%= markdown @entry.content %><br>
+<% if user_signed_in? %>
+  <%= link_to 'Edit', edit_entry_path(@entry) %>
+  <%= link_to 'Delete', entry_path(@entry),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
 <% end %>
-<br>
 
-Share:
 <br>
-
 <!-- Share on Facebook -->
-<a onclick="javascript:window.open('http://www.facebook.com/sharer/sharer.php?u=<%= request.original_url %>', '_blank', 'width=800, height=500, top=200, left=300');void(0);">Facebook<i class="fa fa-facebook" aria-hidden="true"></i></a>
-
-
+<a onclick="javascript:window.open('http://www.facebook.com/sharer/sharer.php?u=<%= request.original_url  
+  %>', '_blank', 'width=800, height=500, top=200, left=300');void(0);">Facebook</a>
 <br>

@@ -7,31 +7,96 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="Site">
   	<header>
-  		<a href="#"></a>
   	</header>
-  	<nav>
-		<%= link_to "Home", root_path %>
-		<%= link_to "Projects", projects_path %>
-		<%= link_to "Blog", entries_path %>
-		<% if user_signed_in? %>
-			<%= link_to "Sign Out", destroy_user_session_path, method: :delete%>
-		<% end %>
-    </nav>
 
-	<!-- Added at behest of Devise -->
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
+  <!--<nav>
+        <div class="grid-nav-container">
+          <div class="grid-nav-item"><a href="#">Logo. Holly Leary</a></div>
+          <div class="grid-nav-item">1</div>
+          <div class="grid-nav-item">3</div>
+          <div class="grid-nav-item">1</div>
+          <div class="grid-nav-item">1</div>
+          <div class="grid-nav-item">1</div>
+          <div class="grid-nav-item">1</div>
+          <div class="grid-nav-item">1</div>
+          <div class="grid-nav-item"><%= link_to "Home", root_path %></div>
+          <div class="grid-nav-item"><%= link_to "Projects", projects_path %></div>  
+          <div class="grid-nav-item"><%= link_to "Blog", entries_path %></div>
+          <div class="grid-nav-item">
+            <% if user_signed_in? %>
+              <%= link_to "Sign Out", destroy_user_session_path, method: :delete%>
+            <% end %>
+          </div>
+        </div>
+      </nav>
+   -->
+    <div class="Site-content">
+      <nav class="flexContainer">
+        <ul class="nav flexItem flexContainer flexStart">
+          <li><%= link_to "Logo", root_path %></li>
+          <li><%= link_to "Holly Leary", root_path %></li>
+        </ul>
+        <ul class="nav flexContainer flexEnd">
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Projects", projects_path %></li>
+          <li><%= link_to "Blog", entries_path %></li>
+          <li><%= link_to "About", "#" %></li>
+          <li><%= mail_to "schleary@gmail.com", "Contact" %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
+          <% end %>
+        </ul>
+      </nav>
 
-    <%= yield %>
+      <div class="content flexContainer flexItem">
+        <main class="flexItem main">
+          <!-- Added at behest of Devise -->
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
 
-    <footer>    
-    <%= mail_to "schleary@gmail.com", "Contact" %>
-		<a href="https://github.com/schleary" target="_blank">GitHub</a>
-		<a href="https://www.linkedin.com/in/holly-leary-63138766/" target="_blank">LinkedIn</a>
-		<a href="https://twitter.com/schleary" target="_blank">Twitter</a>
-	</footer>
+            <%= yield %>
+
+        </main>
+
+        <aside class="sidebar sidebarLeft">
+           
+        </aside>
+        <aside class="sidebar sidebarRight">
+            
+        </aside>
+      </div>
+    </div>
+
+    <footer class="flexContainer">
+      <ul class="footer flexItem flexContainer flexStart">
+        <li>&copy 2018 Holly Leary</li>
+      </ul>
+      <ul class="footer nav flexContainer flexEnd">
+        <li><%= mail_to "schleary@gmail.com", "Contact" %>
+        <li><a href="https://www.linkedin.com/in/holly-leary-63138766/" target="_blank">LinkedIn</a>
+        <li><a href="https://www.adadevelopersacademy.org/" target="blank">Ada</a>
+        <li><a href="https://github.com/schleary" target="_blank">GitHub</a>
+      </ul>
+    </footer>
+
+   <!--  <footer>  
+      <div class="grid-foot-container">
+        <div class="grid-foot-item"></div>
+        <div class="grid-foot-item"></div>
+        <div class="grid-foot-item"></div>
+        <div class="grid-foot-item"></div>
+        <div class="grid-foot-item"><%= mail_to "schleary@gmail.com", "Contact" %></div>
+        <div class="grid-foot-item"><a href="https://github.com/schleary" target="_blank">GitHub</a></div>
+        <div class="grid-foot-item"><a href="https://www.linkedin.com/in/holly-leary-63138766/" target="_blank">LinkedIn</a></div>  
+        <div class="grid-foot-item"></div>
+        <div class="grid-foot-item"></div>
+        <div class="grid-foot-item"></div>
+        <div class="grid-foot-item"></div>
+        <div class="grid-foot-item"></div>
+      </div>  		
+	</footer> -->
 
   </body>
 </html>

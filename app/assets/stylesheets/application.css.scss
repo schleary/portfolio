@@ -20,8 +20,8 @@ html, body {
    /* Colors */
   --translucent-white-bg: rgba(255, 255, 255, .65); 
 
-  background: lightgrey; 
-  background-image: url(hex.svg);
+  background: lightgrey; /* Needed for hex background */
+  background-image: url(hex-bg.svg);
   margin: 0; /* Keeps 0 border */
 }
 
@@ -103,6 +103,17 @@ html, body {
     text-align: right;
   }
 
+  .berry {
+    position: absolute;
+    margin-bottom: 10px;
+    padding: 8px 20px 20px 20px;
+  }
+
+  .berryName {
+    padding-top: 20px;
+    padding-right: 70px;
+  }
+
   .footFlexContainer {
     display: flex;
     flex-direction: row-reverse;
@@ -140,6 +151,16 @@ html, body {
 
   .nav a {
     padding: 8px;
+  }
+
+  .berry {
+    position: absolute;
+    margin-bottom: 10px;
+    padding: 8px 20px 20px 20px;
+  }
+
+  .berryName {
+    padding-left: 80px;
   }
 
   .sidebarLeft{
@@ -208,6 +229,16 @@ html, body {
 
   .nav a {
     padding: 0 1em;
+  }
+
+  .berry {
+    position: absolute;
+    margin-bottom: 10px;
+    padding: 8px 20px 20px 20px;
+  }
+
+  .berryName {
+    padding-left: 80px;
   }
 
   .contFlexContainer {

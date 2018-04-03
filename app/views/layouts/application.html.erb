@@ -19,8 +19,10 @@
 
     <div class="pageContent">
       <nav class="navFlexContainer">
-        <ul class="nav navFlexItem1 navSubContainer">
-          <li><%= link_to "Logo", root_path %></li>
+        <div class="berry">
+          <%= link_to image_tag("berry.png", height: '75em;'), root_path %>
+        </div>
+        <ul class="nav berryName navFlexItem1 navSubContainer">      
           <li><%= link_to "HollyLeary", root_path %></li>
         </ul>
         <ul class="nav navFlexItem2 navSubContainer">

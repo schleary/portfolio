@@ -1,8 +1,10 @@
 <div class="flexContainer">
   <div class="flexHeight">
+  <!-- 
     <% if user_signed_in? %>
       <%= link_to 'New Project', new_project_path %>
     <% end %>
+
 
 
     <% @projects.each do |project| %>
@@ -14,91 +16,31 @@
       </div>
       <%= project.description %>
       <br>
-    <% end %> 
+    <% end %>  --> 
+
+<ul id="hexGrid">
+  <% if user_signed_in? %>
+    <li class="hex">
+      <div class="hexIn">
+        <a class="hexLink" href="<%= new_project_path %>">
+          <img src="" />
+          <p>New Project</p>
+        </a>
+      </div>
+    </li>
+    <% end %>
+    <% @projects.each do |project| %>
+    <li class="hex">
+      <div class="hexIn">
+        <a class="hexLink" href="<%= project_path(project) %>">
+          <img src="<%= project.image %>" />
+          <p><%= project.title %></p>
+        </a>
+      </div>
+    </li>
+    <% end %>
+    </ul>
   </div>
 </div>
 
-<!-- 
-<div class="wrapper">
-  <div class="trans-background">One</div>
-  <div class="paper-background">Six</div>
-  <div class="one">Two</div>
-  <div class="two">Three</div>
-  <div class="three">Four</div>
-  <div class="four">Five</div>
-  <div class="five">Six</div>
-  <div class="six">One</div>
-  <div class="seven">Two</div>
-  <div class="eight">Three</div>
-  <div class="nine">Four</div>
-  <div class="ten">Five</div>
-  <div class="eleven">Two</div>
-  <div class="twelve">Two</div>
-  <div class="thirteen">Two</div>
-  <div class="oneq">Two</div>
-  <div class="twoq">Three</div>
-  <div class="threeq">Four</div>
-  <div class="fourq">Five</div>
-  <div class="fiveq">Six</div>
-  <div class="sixq">One</div>
-  <div class="sevenq">Two</div>
-  <div class="eightq">Three</div>
-  <div class="nineq">Four</div>
-  <div class="tenq">Five</div>
-  <div class="elevenq">Two</div>
-  <div class="twelveq">Two</div>
-  <div class="thirteenq">Two</div>
 
-  <div class="onet">Two</div>
-  <div class="twot">Two</div>
-  <div class="threet">Two</div>
-  <div class="fourt">Two</div>
-  <div class="fivet">Two</div>
-  <div class="sixt">Two</div>
-
-</div>
-
-<style>
-  .onet { 
-    grid-column: 4 /9;
-    grid-row: 2/8;
-    background-color: rgba(250,100,00,0.3);
-    text-align: center;
-    padding: 10px;
-  }
-  .twot { 
-    grid-column: 10 /15;
-    grid-row: 2/8;
-    background-color: rgba(250,10,300,0.3);
-    text-align: center;
-    padding: 10px;
-  }
-  .threet { 
-    grid-column: 16 /21;
-    grid-row: 2/8;
-    background-color: rgba(250,10,300,0.3);
-    text-align: center;
-    padding: 10px;
-  }
-  .fourt { 
-    grid-column: 7 /12;
-    grid-row: 7/13;
-    background-color: rgba(250,10,300,0.3);
-    text-align: center;
-    padding: 10px;
-  }
-  .fivet { 
-    grid-column: 13 /18;
-    grid-row: 7/13;
-    background-color: rgba(250,10,300,0.3);
-    text-align: center;
-    padding: 10px;
-  }
-  .sixt { 
-    grid-column: 19 /24;
-    grid-row: 7/13;
-    background-color: rgba(250,10,300,0.3);
-    text-align: center;
-    padding: 10px;
-  }
-</style> -->

@@ -4,7 +4,10 @@
 <%= link_to 'Show All', entries_path %>
 <br>
 
-<%= @entry.image %>
+<div class="flexContainer blogPic">
+	<%= image_tag @entry.image_url.to_s %>
+</div>
+
 <h1>
   <%= @entry.title %>
 </h1>

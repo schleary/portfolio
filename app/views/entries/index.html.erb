@@ -6,12 +6,22 @@
     <br>
 
     <% @entries.each do |entry| %>
-      <%= link_to entry.image, entry_path(entry) %>
+
+      <%= link_to entry_path(entry), target: "_blank" do %>
+        <figure>
+          <%= image_tag entry.image_url.to_s, alt: entry.title %>
+        </figure>
+      <% end %>
+
       <h1>
         <%= link_to entry.title, entry_path(entry) %>
       </h1>
-      <%= entry.date.strftime('%B %w, %Y') %><br>
-      <%= markdown entry.content %><br>
+
+      <%= entry.date.strftime('%B %w, %Y') %>
+
+      <p>
+        <%= markdown entry.content %>
+      <p>
       <%= link_to 'Show', entry_path(entry) %>
       <% if user_signed_in? %>
         <%= link_to 'Edit', edit_entry_path(entry) %>
@@ -19,6 +29,8 @@
               method: :delete,
               data: { confirm: 'Are you sure?' } %>
       <% end %>
+      <br>
+
     <% end %>
   </div>
 </div>

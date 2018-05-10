@@ -5,14 +5,10 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
   </head>
 
   <body class="page">
-
-    
-
-
-
 
   	<header>
   	</header>
@@ -29,8 +25,9 @@
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Projects", projects_path %></li>
           <li><%= link_to "Blog", entries_path %></li>
-          <li><%= link_to "About", "#" %></li>
-          <li><%= mail_to "schleary@gmail.com", "Contact" %></li>
+          <li><%= link_to "About", about_index_path %></li>
+          <!-- <li><%= link_to "Contact", contacts_path %></li> -->
+          <!-- <li><%= mail_to "schleary@gmail.com", "Contact" %></li> -->
           <% if user_signed_in? %>
             <li><%= link_to "SignOut", destroy_user_session_path, method: :delete%></li>
           <% end %>
@@ -38,14 +35,13 @@
       </nav>
 
       <div class="content contFlexContainer">
-        <main class="contFlexItem main">
+
           <!-- Added at behest of Devise -->
           <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
+          <p class="alert"><%= alert %></p> 
 
             <%= yield %>
 
-        </main>
 
         <aside class="sidebar sidebarLeft">         
         </aside>
@@ -67,5 +63,6 @@
       </ul>
     </footer>
 
+    <script id="dsq-count-scr" src="//hollyleary.disqus.com/count.js" async></script>
   </body>
 </html>

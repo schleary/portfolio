@@ -2,11 +2,11 @@ class EntriesController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 	
 	def index
-		@entries = Entry.all
+		@entries = Entry.all.order("created_at desc").paginate(page: params[:page], per_page: 5)
 	end
 
 	def show
-		@entry = Entry.find(params[:id])
+		@entry = Entry.friendly.find(params[:id])
 	end
 
 	def new
@@ -14,7 +14,7 @@ class EntriesController < ApplicationController
 	end
 
 	def edit
-		@entry = Entry.find(params[:id])
+		@entry = Entry.friendly.find(params[:id])
 	end
 
 	def create
@@ -28,7 +28,7 @@ class EntriesController < ApplicationController
 	end
 
 	def update
-		@entry = Entry.find(params[:id])
+		@entry = Entry.friendly.find(params[:id])
 
 		if @entry.update(entry_params)
 			redirect_to @entry
@@ -38,7 +38,7 @@ class EntriesController < ApplicationController
 	end
 
 	def destroy
-		@entry = Entry.find(params[:id])
+		@entry = Entry.friendly.find(params[:id])
 		@entry.destroy
 
 		redirect_to entries_path
@@ -48,7 +48,7 @@ class EntriesController < ApplicationController
 	private
 
 		def entry_params
-			params.require(:entry).permit(:title, :date, :image, :content)
+			params.require(:entry).permit(:title, :date, :image, :content, :slug)
 		end
 
 end

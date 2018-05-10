@@ -1,37 +1,45 @@
-<div class="flexContainer">
-  <div class="flexHeight flexRow">
-    <% if user_signed_in? %>
-      <%= link_to 'New Entry', new_entry_path %>
-    <% end %>
-    <br>
+<main class="contFlexItem marginlessMain">
+  <div class="flexContainer">
+    <div class="flexHeight flexRow">
 
-    <% @entries.each do |entry| %>
+      <% @entries.each do |entry| %>
 
-      <%= link_to entry_path(entry), target: "_blank" do %>
-        <figure>
-          <%= image_tag entry.image_url.to_s, alt: entry.title %>
-        </figure>
+        <%= link_to entry_path(entry) do %>
+          <div class="blogPic">
+            <%= image_tag entry.image_url.to_s, alt: entry.title %>
+          </div>
+        <% end %>
+
+        <div class="everythingElse">
+          <h1>
+            <%= link_to entry.title, entry_path(entry) %>
+          </h1>
+
+          <%= entry.date.strftime('%B %w, %Y') %>
+
+          <p>
+            <%= markdown entry.content %>
+          <p>
+          <%= link_to 'Show', entry_path(entry) %>
+          <% if user_signed_in? %>
+            <%= link_to 'Edit', edit_entry_path(entry) %>
+            <%= link_to 'Delete', entry_path(entry),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %>
+          <% end %>
+          <% if user_signed_in? %>
+            <%= link_to 'New', new_entry_path %>
+          <% end %>
+          <br>
+
+        </div>
+
       <% end %>
 
-      <h1>
-        <%= link_to entry.title, entry_path(entry) %>
-      </h1>
-
-      <%= entry.date.strftime('%B %w, %Y') %>
-
-      <p>
-        <%= markdown entry.content %>
-      <p>
-      <%= link_to 'Show', entry_path(entry) %>
-      <% if user_signed_in? %>
-        <%= link_to 'Edit', edit_entry_path(entry) %>
-        <%= link_to 'Delete', entry_path(entry),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
-      <% end %>
-      <br>
-
-    <% end %>
+                <%= will_paginate @entries %>
+      
+    </div>
   </div>
-</div>
+</main>
+
 

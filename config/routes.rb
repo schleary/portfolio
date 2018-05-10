@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
+
+  get 'home/index'
+  root 'home#index'
+  
+  get 'about/index'
+
   devise_for :users
 
   resources :projects
   resources :entries
-  
-  match '/contacts',     to: 'contacts#new',  via: 'get'  
-  resources :contacts, only: [:new, :create]
-
-  get 'home/index'
-  root 'home#index'
 
   # Prevents error page and redirects user to home
   get '*path' => redirect('/')
